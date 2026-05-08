@@ -37,12 +37,18 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: |
+          dotnet restore ManageClientSql.Repository/ManageClientSql.Repository.csproj
+          dotnet restore ManageClientSql.Service/ManageClientSql.Service.csproj
+          dotnet restore ManageClientSql.Tests/ManageClientSql.Tests.csproj
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
+        run: |
+          dotnet build ManageClientSql.Repository/ManageClientSql.Repository.csproj --no-restore --configuration Release
+          dotnet build ManageClientSql.Service/ManageClientSql.Service.csproj --no-restore --configuration Release
+          dotnet build ManageClientSql.Tests/ManageClientSql.Tests.csproj --no-restore --configuration Release
 
       - name: Run tests
-        run: dotnet test --no-build --configuration Release --verbosity normal
+        run: dotnet test ManageClientSql.Tests/ManageClientSql.Tests.csproj --no-build --configuration Release --verbosity normal
         env:
           DB_NAME: ManageClientSqlTest
