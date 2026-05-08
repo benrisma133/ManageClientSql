@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ManageClientSql.Presentation/ManageClientSql.Presentation.csproj" />
+  <Project Path="ManageClientSql.Repository/ManageClientSql.Repository.csproj" />
+  <Project Path="ManageClientSql.Service/ManageClientSql.Service.csproj" />
+  <Project Path="ManageClientSql.Tests/ManageClientSql.Tests.csproj" />
+</Solution>
